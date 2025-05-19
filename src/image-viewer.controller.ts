@@ -15,11 +15,11 @@ export class ImageViewerController {
    * @param {object} imageElement The image element
    * @param {object} opts ImageViewer options
    */
-  create(imageElement: any,  opts: ImageViewerOptions = {}) {
+  create(imageElement: any,  opts: ImageViewerOptions = {}, caption: string = "") {
     const image = imageElement.src;
     const position = imageElement.getBoundingClientRect();
 
-    const options = { image, position, ...opts };
+    const options = { image, position, caption: caption, ...opts };
 
     return new ImageViewer(this._app, ImageViewerComponent, options, this.config, this.deepLinker);
   }

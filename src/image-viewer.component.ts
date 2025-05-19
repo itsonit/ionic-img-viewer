@@ -43,6 +43,7 @@ import { ImageViewerEnter, ImageViewerLeave } from './image-viewer-transitions';
 		<div class="image-wrapper">
 			<div class="image" #imageContainer>
 				<img [src]="imageUrl" tappable #image />
+				<div class="imgcpation">{{caption}}</div>
 			</div>
 		</div>
 	`,
@@ -51,6 +52,7 @@ import { ImageViewerEnter, ImageViewerLeave } from './image-viewer-transitions';
 })
 export class ImageViewerComponent extends Ion implements OnInit, OnDestroy, AfterViewInit {
 	public imageUrl: SafeUrl;
+	public caption: string;
 
 	public dragGesture: ImageViewerTransitionGesture;
 
@@ -79,6 +81,7 @@ export class ImageViewerComponent extends Ion implements OnInit, OnDestroy, Afte
 
 		const url = _navParams.get('image');
 		this.updateImageSrc(url);
+		this.caption = _navParams.get('caption');
 	}
 
 	updateImageSrc(src) {

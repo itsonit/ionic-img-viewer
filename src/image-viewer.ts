@@ -22,4 +22,5 @@ export interface ImageViewerOptions {
 	fullResImage?: string
 	position?: ClientRect;
 	onCloseCallback?: Function;
+	caption?: string;
 }
